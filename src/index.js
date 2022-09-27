@@ -4,16 +4,16 @@ import tasks from './modules/list.js';
 const listContainer = document.getElementById('container');
 
 const displayList = () => {
-  // tasks = JSON.parse(localStorage.getItem('lion'));
-  tasks.reverse().map((task) => {
-    const singleLiHtml = `<li class="singleLi">
+  tasks.map((task) => {
+    const singleLiHtml = `<li class="singleLi" id="${task.index}">
     <div class="checking">
         <input type="checkbox" name="check">
         ${task.decription}
     </div>
-    <i class="fa-solid fa-ellipsis-vertical"></i>
+    <i class="fa-solid fa-ellipsis-vertical icon"></i>
 </li>`;
-    listContainer.insertAdjacentHTML('afterbegin', singleLiHtml);
+    listContainer.insertAdjacentHTML('beforeend', singleLiHtml);
+    console.log(task.index);
   });
 };
-displayList();
+window.onload = displayList();
