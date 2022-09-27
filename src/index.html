@@ -4,13 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <script src="https://kit.fontawesome.com/baf7e9f545.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
 </head>
 
 <body>
-    <h1>Hello webpack!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, voluptatibus aspernatur ad vitae cupiditate
-        labore ea ratione fugit? Tenetur, minus?</p>
+    <main class="main">
+        <section class="big-cont">
+            <div class="title-cont">
+                <h3 class="title">To Do's</h3>
+            </div>
+            <div class="add-cont">
+                <input type="text" id="addTo" name="addTo" placeholder="Add to your list...">
+                <div>
+                    <i class="fa-solid fa-arrow-turn-down-left"></i>
+                </div>
+            </div>
+            <ul class="container list-none" id="container">
+                <!-- <li class="singleLi">
+                <div class="checking">
+                    <input type="checkbox" name="check">
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </li> -->
+            </ul>
+            <p>Clear all completed</p>
+        </section>
+    </main>
+
 </body>
 
 </html>
