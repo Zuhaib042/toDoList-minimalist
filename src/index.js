@@ -4,7 +4,7 @@ import tasks from './modules/list.js';
 const listContainer = document.getElementById('container');
 
 const displayList = () => {
-  tasks.map((task) => {
+  tasks.forEach((task) => {
     const singleLiHtml = `<li class="singleLi" id="${task.index}">
     <div class="checking">
         <input type="checkbox" name="check">
@@ -13,7 +13,6 @@ const displayList = () => {
     <i class="fa-solid fa-ellipsis-vertical icon"></i>
 </li>`;
     listContainer.insertAdjacentHTML('beforeend', singleLiHtml);
-    console.log(task.index);
   });
 };
 window.onload = displayList();
