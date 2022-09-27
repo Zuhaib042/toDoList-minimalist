@@ -37,7 +37,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "loadash": "^1.0.0",
     "lodash": "^4.17.21"
   }
 }
