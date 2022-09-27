@@ -1,13 +1,18 @@
-import _ from 'lodash';
 import './style.css';
+import tasks from './modules/list.js';
 
-function component() {
-  const element = document.createElement('div');
+const listContainer = document.getElementById('container');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+const displayList = () => {
+  tasks.forEach((task) => {
+    const singleLiHtml = `<li class="singleLi" id="${task.index}">
+    <div class="checking">
+        <input type="checkbox" name="check">
+        ${task.decription}
+    </div>
+    <i class="fa-solid fa-ellipsis-vertical icon"></i>
+</li>`;
+    listContainer.insertAdjacentHTML('beforeend', singleLiHtml);
+  });
+};
+window.onload = displayList();

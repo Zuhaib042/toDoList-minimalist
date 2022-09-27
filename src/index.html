@@ -4,13 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <script src="https://kit.fontawesome.com/baf7e9f545.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
 </head>
 
 <body>
-    <h1>Hello webpack!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, voluptatibus aspernatur ad vitae cupiditate
-        labore ea ratione fugit? Tenetur, minus?</p>
+    <main class="main">
+        <section class="big-cont">
+            <div class="title-cont">
+                <h3 class="title">Today's To Do</h3>
+                <i class="fa-sharp fa-solid fa-rotate icon"></i>
+            </div>
+            <div class="add-cont">
+                <input type="text" id="addTo" name="addTo" placeholder="Add to your list...">
+                <div>
+                    <i class="fa-sharp fa-solid fa-arrow-left-long arrow icon"></i>
+                </div>
+            </div>
+            <ul class="container list-none" id="container">
+            </ul>
+            <div class="clear-cont"> <button type="button" class="clear">Clear all completed</button>
+            </div>
+        </section>
+    </main>
+
 </body>
 
 </html>

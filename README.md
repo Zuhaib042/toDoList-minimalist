@@ -1,14 +1,19 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# webpack-boilerplate
+# To Do list - minimalist
 
-> It is a simple webpack boilerplate to use in projects as a starting point.
+> It is a simple yet powerful to do list app where you can
 
 ## Built With
 
 - Major languages
+  Html, Css and Javascript
+
 - Frameworks
+  none
+
 - Technologies used
+  linters ( Webhint, Stylelint, Eslint) , webpack , Git and Github.
 
 ## Live Demo (if available)
 
@@ -18,17 +23,21 @@
 
 To get a local copy up and running follow these simple example steps.
 run git clone
-https://github.com/Zuhaib042/webpack-boilerplate.git
+`https://github.com/Zuhaib042/webpack-boilerplate.git`
+then `npm install` to install node packages
+then `npm start` to compile the file and show the result in runtime.
 
 ### Prerequisites
 
-moderate knowledge of Html,Css and Javascript.
+moderate knowledge of Html,Css and Javascript and webpack.
 
 ### Install
 
 install Vscode or any other code editor.
 
 ### Usage
+
+This app can be utilised to make powerful todo list app.
 
 ## Authors
 
@@ -57,5 +66,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
