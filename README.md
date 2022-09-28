@@ -2,7 +2,7 @@
 
 # To Do list - minimalist
 
-> It is a simple yet powerful to do list app where you can
+> It is a simple yet powerful to do list app in which you can add daily to-do tasks. it would save all the data and changes in local storage and track your daily tasks whether you have completed them or no.
 
 ## Built With
 
@@ -17,14 +17,17 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://zuhaib042.github.io/toDoList-minimalist/)
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 run git clone
+
 `https://github.com/Zuhaib042/webpack-boilerplate.git`
+
 then `npm install` to install node packages
+
 then `npm start` to compile the file and show the result in runtime.
 
 ### Prerequisites
