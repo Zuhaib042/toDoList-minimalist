@@ -2,8 +2,6 @@ import './style.css';
 import tasks, { inputAdd, listContainer } from './modules/list.js';
 
 window.onload = tasks.displayList();
-// const singleLi = document.querySelectorAll('.singleLi');
-// console.log(singleLi);
 
 inputAdd.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {

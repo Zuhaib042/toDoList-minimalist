@@ -8,6 +8,7 @@ export default class Tasks {
     this.complete = complete;
     this.index = index;
   }
+
   static displayList = () => {
     tasksItems.forEach((task, index) => {
       const singleLiHtml = `<li class="singleLi" id="${index}">
@@ -26,7 +27,7 @@ export default class Tasks {
       });
     });
     const taskInputs = document.querySelectorAll('.task-input');
-    console.log(taskInputs);
+
     taskInputs.forEach((task, index) => {
       task.addEventListener('change', () => {
         if (task.value) {
@@ -40,7 +41,6 @@ export default class Tasks {
   static addTask = () => {
     const task = new Tasks(inputAdd.value, false, tasksItems.length + 1);
     if (inputAdd.value !== '') {
-      console.log(inputAdd.value);
       tasksItems.push(task);
       localStorage.setItem('lion', JSON.stringify(tasksItems));
     }
@@ -48,7 +48,7 @@ export default class Tasks {
 
   static removeTask = (index) => {
     tasksItems.splice(index, 1);
-    tasksItems.forEach((e, i) => (e.index = i + 1));
+    tasksItems.forEach((e, i) => (e.index = i + 1)); //eslint-disable-line
     listContainer.innerHTML = '';
     localStorage.setItem('lion', JSON.stringify(tasksItems));
     Tasks.displayList();
