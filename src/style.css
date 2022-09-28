@@ -52,6 +52,13 @@ body {
   font-style: italic;
 }
 
+.task-input {
+  outline: 0;
+  border: 0;
+  min-width: 300px;
+  font-size: 17px;
+}
+
 .singleLi {
   padding: 15px;
   border-bottom: 1px solid rgb(239, 239, 239);
@@ -93,5 +100,8 @@ body {
 @media screen and (min-width: 768px) {
   #addTo {
     min-width: 500px;
+  }
+  .task-input {
+    min-width: 440px;
   }
 }
