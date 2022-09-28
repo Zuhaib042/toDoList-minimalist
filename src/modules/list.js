@@ -48,7 +48,9 @@ export default class Tasks {
 
   static removeTask = (index) => {
     tasksItems.splice(index, 1);
-    tasksItems.forEach((e, i) => (e.index = i + 1)); //eslint-disable-line
+    tasksItems.forEach((e, i) => {
+      e.index = i + 1;
+    });
     listContainer.innerHTML = '';
     localStorage.setItem('lion', JSON.stringify(tasksItems));
     Tasks.displayList();
