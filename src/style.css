@@ -81,6 +81,7 @@ body {
   position: relative;
   right: 13px;
   font-size: 11px;
+  opacity: 0.4;
 }
 
 .icon:hover {
