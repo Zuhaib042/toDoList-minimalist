@@ -1,5 +1,5 @@
-import TaskStatus from './taskStatus';
-export const tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
+import TaskStatus, { tasksItems } from './taskStatus.js';
+
 export const inputAdd = document.getElementById('addTo');
 export const listContainer = document.getElementById('container');
 
