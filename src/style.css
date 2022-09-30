@@ -77,6 +77,14 @@ body {
   opacity: 0.4;
 }
 
+.checkboxActive {
+  text-decoration: line-through orangered;
+}
+
+.rotateactive {
+  transform: rotate(180deg);
+}
+
 .arrow {
   position: relative;
   right: 13px;

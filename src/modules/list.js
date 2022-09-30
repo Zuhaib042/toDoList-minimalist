@@ -1,4 +1,5 @@
-export const tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
+import TaskStatus, { tasksItems } from './taskStatus.js';
+
 export const inputAdd = document.getElementById('addTo');
 export const listContainer = document.getElementById('container');
 
@@ -13,8 +14,12 @@ export default class Tasks {
     tasksItems.forEach((task, index) => {
       const singleLiHtml = `<li class="singleLi" id="${index}">
       <div class="checking">
-      <input type="checkbox" name="checkbox" />
-          <input type="text" class="task-input" value="${task.description}" >
+      <input type="checkbox" ${
+        task.complete === true ? 'checked' : ''
+      } class="checkbox" name="checkbox" />
+          <input type="text" class="task-input ${
+            task.complete === true ? 'checkboxActive' : ''
+          }" value="${task.description}" >
       </div>
       <i class="fa-solid fa-trash-can icon delete"></i>
   </li>`;
@@ -39,7 +44,7 @@ export default class Tasks {
   };
 
   static addTask = () => {
-    const task = new Tasks(inputAdd.value, false, tasksItems.length + 1);
+    const task = new Tasks(inputAdd.value, false, tasksItems.length);
     if (inputAdd.value !== '') {
       tasksItems.push(task);
       localStorage.setItem('lion', JSON.stringify(tasksItems));
@@ -49,10 +54,11 @@ export default class Tasks {
   static removeTask = (index) => {
     tasksItems.splice(index, 1);
     tasksItems.forEach((e, i) => {
-      e.index = i + 1;
+      e.index = i;
     });
     listContainer.innerHTML = '';
     localStorage.setItem('lion', JSON.stringify(tasksItems));
     Tasks.displayList();
+    TaskStatus.taskComplete();
   };
 }
