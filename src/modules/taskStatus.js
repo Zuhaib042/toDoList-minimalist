@@ -23,14 +23,19 @@ class TaskStatus {
   };
 
   // clear all completed tasks from the list
-  //   static clearList = () => {
-  //     const clear = document.querySelector('.clear');
-  //     clear.addEventListener('click', () => {
-  //       console.log(clear);
-  //       tasksItems.filter((ele, i) => {
-  //         ele.complete == false;
-  //       });
-  //     });
-  //   };
+  static clearList = () => {
+    const clear = document.querySelector('.clear');
+    clear.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log(clear);
+      const remain = tasksItems.filter((ele) => ele.complete === false);
+      remain.forEach((e, i) => {
+        e.index = i;
+      });
+      console.log(remain);
+      localStorage.setItem('lion', JSON.stringify(remain));
+      window.location.reload();
+    });
+  };
 }
 export default TaskStatus;

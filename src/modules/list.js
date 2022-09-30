@@ -1,3 +1,4 @@
+import TaskStatus from './taskStatus';
 export const tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
 export const inputAdd = document.getElementById('addTo');
 export const listContainer = document.getElementById('container');
@@ -58,5 +59,6 @@ export default class Tasks {
     listContainer.innerHTML = '';
     localStorage.setItem('lion', JSON.stringify(tasksItems));
     Tasks.displayList();
+    TaskStatus.taskComplete();
   };
 }
