@@ -17,7 +17,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://zuhaib042.github.io/toDoList-minimalist/)
+[Live Demo Link](https://zuhaib042.github.io/toDoList-minimalist/dist/)
 
 ## Getting Started
 
