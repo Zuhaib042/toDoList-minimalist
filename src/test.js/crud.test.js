@@ -44,4 +44,23 @@ describe('check if addTask and removeTask methods work properly', () => {
       ])
     );
   });
+  test('checking if removeTask removes the correct item in the array', () => {
+    // arrange
+    const listContainer = document.getElementById('container');
+    // assert
+    expect(listContainer.childElementCount).toBe(1); // there is one item in listContainer in virtual DOM
+    //  act
+    tasks.removeTask(0);
+    // assert
+    expect(listContainer.childElementCount).toBe(0); // remove item from listContainer
+  });
+  test('Test if the array is empty or not', () => {
+    const object = {
+      description: 'what"s up',
+      complete: false,
+      index: 0,
+    };
+    const data = localStorage.getItem('lion');
+    expect('data').toBe(1);
+  });
 });
