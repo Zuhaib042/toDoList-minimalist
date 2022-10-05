@@ -54,13 +54,4 @@ describe('check if addTask and removeTask methods work properly', () => {
     // assert
     expect(listContainer.childElementCount).toBe(0); // remove item from listContainer
   });
-  test('Test if the array is empty or not', () => {
-    const object = {
-      description: 'what"s up',
-      complete: false,
-      index: 0,
-    };
-    const data = localStorage.getItem('lion');
-    expect('data').toBe(1);
-  });
 });
