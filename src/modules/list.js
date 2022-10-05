@@ -44,11 +44,13 @@ export default class Tasks {
   };
 
   static addTask = () => {
+    const inputAdd = document.getElementById('addTo');
     const task = new Tasks(inputAdd.value, false, tasksItems.length);
     if (inputAdd.value !== '') {
       tasksItems.push(task);
       localStorage.setItem('lion', JSON.stringify(tasksItems));
     }
+    return task;
   };
 
   static removeTask = (index) => {

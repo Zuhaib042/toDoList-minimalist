@@ -11,7 +11,8 @@
   "jest": {
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "jest-environment-jsdom": "^29.1.2",
+    "jsdom": "^20.0.1",
     "lodash": "^4.17.21"
   }
 }
