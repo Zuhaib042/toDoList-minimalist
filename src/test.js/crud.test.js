@@ -41,14 +41,14 @@ describe('check if addTask and removeTask methods work properly', () => {
           complete: false,
           index: 0,
         },
-      ])
+      ]),
     );
   });
   test('checking if removeTask removes the correct item in the array', () => {
     // arrange
     const listContainer = document.getElementById('container');
     // assert
-    expect(listContainer.childElementCount).toBe(1); // there is one item in listContainer in virtual DOM
+    expect(listContainer.childElementCount).toBe(1); // currently one item in listContainer
     //  act
     tasks.removeTask(0);
     // assert
