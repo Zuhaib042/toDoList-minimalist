@@ -54,6 +54,7 @@ export default class Tasks {
   };
 
   static removeTask = (index) => {
+    const listContainer = document.getElementById('container');
     tasksItems.splice(index, 1);
     tasksItems.forEach((e, i) => {
       e.index = i;
