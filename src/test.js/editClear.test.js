@@ -60,4 +60,38 @@ describe('Edit,Clear and StatusCheck functions', () => {
     expect(storage2[1].completed).toBeTruthy();
     expect(storage2[2].completed).toBeTruthy();
   });
+
+  test('check if clearing the list is deleting all the completed tasks', () => {
+    let data = JSON.parse(localStorage.getItem('lion'));
+    const task1 = {
+      description: 'go to gym',
+      complete: true,
+      index: 3,
+    };
+    const task2 = {
+      description: 'eat lunch',
+      complete: true,
+      index: 4,
+    };
+    const task3 = {
+      description: 'do the dishes',
+      complete: false,
+      index: 5,
+    };
+    data.push(task1);
+    data.push(task2);
+    data.push(task3);
+    const clearList = jest.fn(() =>
+      data.filter((ele) => ele.complete === false)
+    );
+    const clearedTasks = clearList();
+    console.log(clearedTasks);
+    expect(clearedTasks[0].complete).toBeFalsy();
+    expect(clearedTasks[0].description).toBe('play football');
+    expect(clearedTasks[0].index).toBe(0);
+    expect(clearedTasks[1].complete).toBeFalsy();
+    expect(clearedTasks[1].description).toBe('get some rest');
+    expect(clearedTasks[2].description).toBe('hangout with friends');
+    expect(clearedTasks).toHaveLength(4);
+  });
 });
