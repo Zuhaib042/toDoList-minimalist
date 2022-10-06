@@ -9,7 +9,7 @@ describe('Edit,Clear and StatusCheck functions', () => {
 </div>
   <ul class="container list-none" id="container"></ul>`;
 
-  test('Testing if edit works or not', () => {
+  test('Testing if input value getting updated in local storage and getting rendered in dom', () => {
     const task1 = {
       description: 'Drop kids',
       complete: false,
@@ -34,7 +34,7 @@ describe('Edit,Clear and StatusCheck functions', () => {
     );
   });
 
-  test('check if task"s completence status is updating', () => {
+  test('check if task"s status is updating', () => {
     // Arrange
     const task1 = { description: 'play football', complete: false, index: 0 };
     const task2 = { description: 'get some rest', complete: false, index: 1 };
@@ -47,11 +47,11 @@ describe('Edit,Clear and StatusCheck functions', () => {
     let storage2 = JSON.parse(localStorage.getItem('lion'));
 
     // Act
-    const taskStatus = jest.fn(
+    const taskComplete = jest.fn(
       (index, status) => (storage2[index].completed = status)
     );
-    taskStatus(1, true);
-    taskStatus(2, true);
+    taskComplete(1, true);
+    taskComplete(2, true);
     console.log(storage2);
 
     // Assert
