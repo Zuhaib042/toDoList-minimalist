@@ -41,7 +41,7 @@ describe('check if addTask and removeTask methods work properly', () => {
           complete: false,
           index: 0,
         },
-      ]),
+      ])
     );
   });
   test('checking if removeTask removes the correct item in the array', () => {
