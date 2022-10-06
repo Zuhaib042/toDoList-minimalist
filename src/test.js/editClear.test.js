@@ -1,5 +1,5 @@
 import tasks from '../modules/list.js';
-
+import taskItems from '../modules/taskStatus';
 describe('Edit,Clear and StatusCheck functions', () => {
   document.body.innerHTML = `<div class="add-cont">
   <input type="text" id="addTo" name="addTo" placeholder="Add to your list...">
@@ -26,12 +26,38 @@ describe('Edit,Clear and StatusCheck functions', () => {
       'Drop kids'
     );
     container.innerHTML = '';
-    storage[0].description = 'Exercise in park';
-    localStorage.setItem('lion', JSON.stringify(storage));
-    tasks.displayList();
+    storage[0].description = 'Exercise in park'; // editing the value
+    localStorage.setItem('lion', JSON.stringify(storage)); // setting value in localStorage
+    tasks.displayList(); // rendering dom
     expect(container.firstChild.children[0].children[1].value).toBe(
       'Exercise in park'
     );
   });
-  test('check if task"s completed status is updating', () => {});
+
+  test('check if task"s completence status is updating', () => {
+    // Arrange
+    const task1 = { description: 'play football', complete: false, index: 0 };
+    const task2 = { description: 'get some rest', complete: false, index: 1 };
+    const task3 = {
+      description: 'hangout with friends',
+      complete: false,
+      index: 2,
+    };
+    localStorage.setItem('lion', JSON.stringify([task1, task2, task3]));
+    let storage2 = JSON.parse(localStorage.getItem('lion'));
+
+    // Act
+    const taskStatus = jest.fn(
+      (index, status) => (storage2[index].completed = status)
+    );
+    taskStatus(1, true);
+    taskStatus(2, true);
+    console.log(storage2);
+
+    // Assert
+    expect(storage2).toHaveLength(3);
+    expect(storage2[0].completed).not.toBeTruthy();
+    expect(storage2[1].completed).toBeTruthy();
+    expect(storage2[2].completed).toBeTruthy();
+  });
 });
