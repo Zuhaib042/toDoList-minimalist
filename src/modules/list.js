@@ -11,7 +11,7 @@ export default class Tasks {
   }
 
   static displayList = () => {
-    let tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
+    const tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
     const listContainer = document.getElementById('container');
     tasksItems.forEach((task, index) => {
       const singleLiHtml = `<li class="singleLi" id="${index}">

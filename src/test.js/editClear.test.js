@@ -1,5 +1,5 @@
 import tasks from '../modules/list.js';
-import taskItems from '../modules/taskStatus';
+
 describe('Edit,Clear and StatusCheck functions', () => {
   document.body.innerHTML = `<div class="add-cont">
   <input type="text" id="addTo" name="addTo" placeholder="Add to your list...">
@@ -16,21 +16,21 @@ describe('Edit,Clear and StatusCheck functions', () => {
       index: 0,
     };
     localStorage.setItem('lion', JSON.stringify([task1]));
-    let storage = JSON.parse(localStorage.getItem('lion'));
+    const storage = JSON.parse(localStorage.getItem('lion'));
     expect(storage).toHaveLength(1);
 
     tasks.displayList();
     const container = document.querySelector('#container');
     expect(container.childElementCount).toBe(1);
     expect(container.firstChild.children[0].children[1].value).toBe(
-      'Drop kids'
+      'Drop kids',
     );
     container.innerHTML = '';
     storage[0].description = 'Exercise in park'; // editing the value
     localStorage.setItem('lion', JSON.stringify(storage)); // setting value in localStorage
     tasks.displayList(); // rendering dom
     expect(container.firstChild.children[0].children[1].value).toBe(
-      'Exercise in park'
+      'Exercise in park',
     );
   });
 
@@ -44,15 +44,14 @@ describe('Edit,Clear and StatusCheck functions', () => {
       index: 2,
     };
     localStorage.setItem('lion', JSON.stringify([task1, task2, task3]));
-    let storage2 = JSON.parse(localStorage.getItem('lion'));
+    const storage2 = JSON.parse(localStorage.getItem('lion'));
 
     // Act
-    const taskComplete = jest.fn(
-      (index, status) => (storage2[index].completed = status)
-    );
+    const taskComplete = jest.fn((index, status) => {
+      storage2[index].completed = status;
+    });
     taskComplete(1, true);
     taskComplete(2, true);
-    console.log(storage2);
 
     // Assert
     expect(storage2).toHaveLength(3);
@@ -62,7 +61,8 @@ describe('Edit,Clear and StatusCheck functions', () => {
   });
 
   test('check if clearing the list is deleting all the completed tasks', () => {
-    let data = JSON.parse(localStorage.getItem('lion'));
+    // Arrange
+    const data = JSON.parse(localStorage.getItem('lion'));
     const task1 = {
       description: 'go to gym',
       complete: true,
@@ -81,11 +81,10 @@ describe('Edit,Clear and StatusCheck functions', () => {
     data.push(task1);
     data.push(task2);
     data.push(task3);
-    const clearList = jest.fn(() =>
-      data.filter((ele) => ele.complete === false)
-    );
+    // Act
+    const clearList = jest.fn(() => data.filter((ele) => ele.complete === false));
     const clearedTasks = clearList();
-    console.log(clearedTasks);
+    // Assert
     expect(clearedTasks[0].complete).toBeFalsy();
     expect(clearedTasks[0].description).toBe('play football');
     expect(clearedTasks[0].index).toBe(0);
