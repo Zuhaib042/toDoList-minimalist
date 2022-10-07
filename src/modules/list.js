@@ -11,6 +11,8 @@ export default class Tasks {
   }
 
   static displayList = () => {
+    const tasksItems = JSON.parse(localStorage.getItem('lion')) || [];
+    const listContainer = document.getElementById('container');
     tasksItems.forEach((task, index) => {
       const singleLiHtml = `<li class="singleLi" id="${index}">
       <div class="checking">
@@ -41,6 +43,7 @@ export default class Tasks {
         }
       });
     });
+    return tasksItems;
   };
 
   static addTask = () => {
